@@ -3,9 +3,46 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Income Divider</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
   </head>
 
-  <body>
-    <h1>Hello World!</h1>
+  <body x-data="{ income: 0 }">
+    <section class="section">
+      <div class="level is-mobile">
+        <!-- Left side -->
+        <div class="level-left">
+          <div class="level-item">
+            <div class="container">
+              <label class="label" for="income">Income</label>
+              <div class="field">
+                <div class="control">
+                  <input
+                    class="input"
+                    type="number"
+                    id="income"
+                    x-model="income"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right side -->
+        <div class="level-right">
+          <div>
+            <p>
+              Personal use (85 %):&nbsp;<span x-text="income * 0.85"></span>
+            </p>
+            <p>Taxes (15 %):&nbsp;<span x-text="income * 0.15"></span></p>
+          </div>
+        </div>
+      </div>
+    </section>
   </body>
 </html>
